@@ -86,7 +86,8 @@ $(document).ready(function(){
       alert('Please select an answer');
     }
   });
-  
+
+
   // Retake button event listener 
   $(".retake-button").click(function(){
   location.reload();
