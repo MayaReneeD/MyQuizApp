@@ -2,59 +2,60 @@
 const myQuestions = [
 	{
     
-	 'question': 'What is the office employee awards night called?',
-	 'answers': ["Dorkies","Dundies","Dweebies","Dingles"],
+    'question': 'WHAT IS THE OFFICE AWARDS NIGHT CALLED?',
+	 'answers': ["DORKIES","DUNDIES","DWEEBIES","DINGLES"],
 	 'correct': 1
 	},
 	{
-	 'question': 'What is the giant pot that Kevin drops all over the office floor?',
-	 'answers': ["Gravy", "Soup", "Mac & Cheese", "Chili"],
+	 'question': 'WHAT IS THE GIANT POT THAT KEVIN DROPS ALL OVER THE OFFICE FLOOR?',
+	 'answers': ["GRAVY", "SOUP", "MAC & CHEESE", "CHILI"],
 	 'correct':  3
 	},
 	{
-	 'question': "How long had Jim and Pam been dating before he bought her engagement ring?",
-	 'answers': ["One week","One month","One year","Two years"],
+	 'question': "HOW LONG HAD JIM AND PAM BEEN DATING BEFORE HE BOUGHT HER ENGAGEMENT RING",
+	 'answers': ["ONE WEEK","ONE MONTH","ONE YEAR","TWO YEARS"],
 	 'correct':  0
 	},
 	{
-	'question': "What does Michael choose as his user name when he signs up for an online dating site?",
-	'answers': ["LittleKidLover","IamTheBoss","DunderMiff","ReadyforMarriage"],
+	'question': "WHAT DOES MICHAEL CHOOSE AS HIS USERNAME WHEN HE SIGNS UP FOR AN ONLINE DATING SITE?",
+	'answers': ["LITTLEKIDLOVER","IAMTHEBOSS","DUNDERMIFF","READYFORMARRIAGE"],
 	'correct':  0
 	},
 	{
-	'question': "What is Erin's real first name?",
-  'answers': ["Brittany", "Christine", "Becca" , "Kelly"],
+	'question': "WHAT IS ERIN'S REAL FIRST NAME?",
+  'answers': ["BRITTANY", "CHRISTINE", "BECCA" , "KELLY"],
 	'correct': 3
 	},
 	{
-	 'question': "Which country does Toby move to when he leaves his job at Dunder Mifflin, only to return later?",
-	 'answers': ["Jamaica","Costa Rica","Italy","Cuba"],
+	 'question': "WHICH COUNTRY DOES TOBY MOVE TO WHEN HE LEAVES HIS JOB AT DUNDER MIFLIN ONLY TO RETURN LATER?",
+	 'answers': ["JAMAICA","COSTA RICA","ITALY","CUBA"],
 	 'correct': 1
 	},
 	{
-	 'question': "Dwight and Andy have a duel over which woman in the office?",
-	 'answers': ["Angela", "Erin", "Kelly", "Meredith"],
+	 'question': "DWIGHT AND ANDY HAVE A DUEL OVER WHICH WOMAN IN THE OFFICE?",
+	 'answers': ["ANGELA", "ERIN", "KELLY", "MEREDITH"],
 	 'correct': 0
 	},
 	{
-	 'question':"What is the name of the cat that Angela throws to Oscar during the fire drill?",
-	 'answers': ["Sprinkles", "Cupcake", "Bandit", "Tinkerbell"],
+	 'question':"WHAT IS THE NAME OF THE CAT THAT ANGELA THROWS AT OSCAR DURING THE FIRE DRILL?",
+	 'answers': ["SPRINKLES", "CUPCAKE", "BANDIT", "TINKERBELL"],
 	 'correct':  2
 	},
 	{
-	 'question':"What does Jan name the baby she has via a sperm donor?",
-	 'answers': ["Axon", "Ally", "Apple", "Astrid"],
+	 'question':"WHAT DOES JAN NAME THE BABY SHE HAS VIA SPERM DONOR?",
+	 'answers': ["AXON", "ALLY", "APPLE", "ASTRID"],
 	 'correct': 3  
 	},
 	{
-	 'question': "What is the name of Michael's infamous screenplay?",
-	 'answers': ["The Chronicles of Michael Scarn","Threat Level Midnight","Life in Scranton", "Michael Scarn Maddness"],
+	 'question': "WHAT IS THE NAME OF MICHAEL'S INFAMOUS SCREENPLAY?",
+	 'answers': ["THE CHRONICLES OF MICHAEL SCARN","THREAT LEVEL MIDNIGHT","LIFE IN SCRANTON", "MICHAEL SCARN MADDNESS"],
 	 'correct': 1
 	}
 	];
 
 let score = 0;
 let current = 0;
+
 
 $(document).ready(function(){
   // Start button event listener
@@ -63,7 +64,7 @@ $(document).ready(function(){
      $('.next').hide();
      $('.questions').show();
      displayQuestion();
-      $('.score').text('Current Score: '+score);
+      $('.score').text('CURRENT SCORE: '+score);
     console.log("Start Quiz button clicked");
   });
   
@@ -77,8 +78,8 @@ $(document).ready(function(){
   
   $(".submit-button").click(function(event){
     event.preventDefault();
-    if($('li.selected').length){
-      let answer = $('li.selected').attr('id');
+    if($('input.selected').length){
+      let answer = $('input.selected').attr('id');
       checkAnswer(answer);
       $('.next').show();
       $('.submit').hide();
@@ -95,7 +96,7 @@ $(document).ready(function(){
   });
   
   //Click listener to make questions change on hover
-  $('ul.list').on('click', 'li', function(event) {
+  $('form.list').on('click', 'input', function(event) {
     $('.selected').removeClass();
     $(this).addClass('selected');
   });
@@ -104,13 +105,14 @@ $(document).ready(function(){
 
 //FUNCTIONS 
 function displayQuestion(){
-  $('.question-number').text('Question Number: '+(current + 1)+"/10" );
+  $('.question-number').text('QUESTION NUMBER: '+(current + 1)+"/10" );
   if(current < myQuestions.length){
     let listQuestion = myQuestions[current];
     $('h2').text(listQuestion.question);
-    $('ul.list').html('');
+    $('form.list').html('');
     for (let i = 0; i < listQuestion.answers.length; i++) {
-      $('ul.list').append('<li id = "'+i+'">'+listQuestion.answers[i] +'</li>');
+      $('form.list').append('<input id = "'+i+'">'+listQuestion.answers[i] +'</li>');
+      
     }
   } else {
     // show summary that says how many you got correct
@@ -123,12 +125,12 @@ function checkAnswer(answer){
   let listQuestion = myQuestions[current];
   if(listQuestion.correct == answer){
     score++;
-    $('li.selected').addClass('correct');
+    $('input.selected').addClass('correct');
   } else {
-    $('li.selected').addClass('incorrect');
+    $('input.selected').addClass('incorrect');
     $('listQuestion.correct').addClass('correct');
   }
-  $('.score').text('Current Score: '+score);
+  $('.score').text('CURRENT SCORE: '+score);
   current++;
 }
 
@@ -136,12 +138,12 @@ function checkAnswer(answer){
 function displayScore(){
   $('.questions').hide();
   $('.end-quiz').show();
-  $('.end-score').text("Your score is: " +score + '/10');
+  $('.end-score').text("YOUR SCORE IS: " +score + '/10');
   if(score >= 8){
-    $('.comment').text('Someone knows their stuff!')
+    $('.comment').text('SOMEONE KNOWS THEIR STUFF!')
     ;
   } else {
-    $('.comment').text('Better luck next time!')
+    $('.comment').text('BETTER LUCK NEXT TIME!')
   
   }
 };

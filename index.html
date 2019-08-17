@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Office Quiz</title>
+  <title>THE OFFICE QUIZ</title>
   <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="index.css">
 
@@ -19,7 +19,7 @@
     </Center>
     <section>
     <div class = "start-quiz">
-      <p class = 'descrip'>Are you a true fan of The Office? Take the quiz and find out!</p>
+      <p class = 'descrip'>ARE YOU A TRUE FAN OF THE OFFICE? LET'S FIND OUT!</p>
       <button class='start-button'>START QUIZ</button>
     </div>
     </section>
@@ -33,19 +33,29 @@
  
 <div class = 'questions'>
     <h2 class='question'></h2>
-    <p class= "score"> Score:  </p>
-    <ul class ="list">
-    </ul>
+    <p class= "score"> SCORE:  </p>
+    <form class ="list">
+        <form name="questions">
+            <label for="input0"></label>
+            <input id="input0" type="radio" name="choice" value="0"></input>
+            <label for="input1"></label>
+            <input id="input1" type="radio" name="choice" value="1"></input>
+            <label for="input2"></label>
+            <input id="input2" type="radio" name="choice" value="2"></input>
+            <label for="input4"></label>
+            <input id="input4" type="radio" name="choice" value="3"></input>
+
+    </form>
 
     
     <div class='submit'>
-      <button class="submit-button">Check Answer</button> 
+      <button class="submit-button">CHECK ANSWER</button> 
     </div>
     
     
   
     <div class='next'>
-      <button class="next-button">Next</button> 
+      <button class="next-button">NEXT</button> 
     </div>
     
     <p class = 'question-number'></p>
@@ -61,7 +71,8 @@
   
 
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="index.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>
