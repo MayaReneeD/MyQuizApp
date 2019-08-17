@@ -98,7 +98,7 @@ $(document).ready(function(){
   //Click listener to make questions change on hover
   $('form.list').on('click', 'input', function(event) {
     $('.selected').removeClass();
-    $(this).addClass('selected');
+    $(this).parent().find("label").addClass('selected');
   });
   
 });
@@ -110,9 +110,11 @@ function displayQuestion(){
     let listQuestion = myQuestions[current];
     $('h2').text(listQuestion.question);
     $('form.list').html('');
-    for (let i = 0; i < listQuestion.answers.length; i++) {
-      $('form.list').append('<input id = "'+i+'">'+listQuestion.answers[i] +'</li>');
-      
+   for (let i = 0; i < listQuestion.answers.length; i++) {
+    $('form.list').append (`<div><label for="input${i}"></label>
+      ('<input type="radio" name="choice" value="0" id = "input ${i} ">${listQuestion.answers[i]} </li></div>`)
+     
+           
     }
   } else {
     // show summary that says how many you got correct
