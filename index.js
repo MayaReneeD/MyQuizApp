@@ -78,8 +78,8 @@ $(document).ready(function(){
   
   $(".submit-button").click(function(event){
     event.preventDefault();
-    if($('input.selected').length){
-      let answer = $('input.selected').attr('id');
+    if($('label.selected').length){
+      let answer = $('label.selected').attr('id');
       checkAnswer(answer);
       $('.next').show();
       $('.submit').hide();
@@ -111,8 +111,7 @@ function displayQuestion(){
     $('h2').text(listQuestion.question);
     $('form.list').html('');
    for (let i = 0; i < listQuestion.answers.length; i++) {
-    $('form.list').append (`<div><label for="input${i}"></label>
-      ('<input type="radio" name="choice" value="0" id = "input ${i} ">${listQuestion.answers[i]} </li></div>`)
+    $('form.list').append (`<div><label for="input${i}">${listQuestion.answers[i]}</label> <input type="radio" name="choice" value="0" id = "input${i}"></input></div>`)
      
            
     }
@@ -127,7 +126,7 @@ function checkAnswer(answer){
   let listQuestion = myQuestions[current];
   if(listQuestion.correct == answer){
     score++;
-    $('input.selected').addClass('correct');
+    $('label.selected').addClass('correct');
   } else {
     $('input.selected').addClass('incorrect');
     $('listQuestion.correct').addClass('correct');

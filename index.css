@@ -82,12 +82,7 @@ body {
   
   
   input {
-    border: 1px solid #d6d6cf;
-    width: 200px;
-    margin: 10px auto;
-    font-size: 18px;
-    border-radius: 5px;
-    padding: 5px;
+    
     -moz-appearance:none;
     -webkit-appearance:none;
     appearance:none;
@@ -108,4 +103,5 @@ body {
 
   label {
     display: block; 
+    border: 1px solid #d6d6cf;
   }
