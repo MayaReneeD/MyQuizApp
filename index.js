@@ -1,4 +1,3 @@
-
 const myQuestions = [
 	{
     
@@ -47,40 +46,43 @@ const myQuestions = [
 	 'correct': 3  
 	},
 	{
-	 'question': "WHAT IS THE NAME OF MICHAEL'S INFAMOUS SCREENPLAY?",
-	 'answers': ["THE CHRONICLES OF MICHAEL SCARN","THREAT LEVEL MIDNIGHT","LIFE IN SCRANTON", "MICHAEL SCARN MADDNESS"],
+	 'question': "HOW MANY KIDS DO PAM AND JIM HAVE?",
+	 'answers': ["3","2","1", "0"],
 	 'correct': 1
 	}
 	];
 
-let score = 0;
-let current = 0;
-
+  let score = 0;
+  let current = 0;
 
 $(document).ready(function(){
-  // Start button event listener
+  // start button event listener
   $(".start-button").click(function(){
-     $('.start-quiz').hide();
+     $('.start-page').hide();
      $('.next').hide();
      $('.questions').show();
      displayQuestion();
-      $('.score').text('CURRENT SCORE: '+score);
+      $('.score').text('Current Score: '+score);
     console.log("Start Quiz button clicked");
   });
-  
-  // Click on next button event listener
+
+  // next button event listener
   $(".next-button").click(function(event){
     console.log("Next button clicked");
     displayQuestion();
     $('.next').hide();
     $('.submit').show();
   });
-  
+
   $(".submit-button").click(function(event){
     event.preventDefault();
-    if($('label.selected').length){
-      let answer = $('label.selected').attr('id');
+    var selected = $('li.selected');
+    console.log(event);
+    if(selected.length){
+      let answer = $('li.selected').attr('id');
+      console.log(answer);
       checkAnswer(answer);
+      console.log("hey world");
       $('.next').show();
       $('.submit').hide();
     } else {
@@ -88,66 +90,58 @@ $(document).ready(function(){
     }
   });
 
-
-  // Retake button event listener 
-  $(".retake-button").click(function(){
+  // retry button click listener
+  $(".retry-button").click(function(){
   location.reload();
     console.log("Retake button clicked");
   });
-  
-  //Click listener to make questions change on hover
-  $('form.list').on('click', 'input', function(event) {
+
+  //click listener to make questions change color on hover
+  $('ul.questions-selector').on('click', 'li', function(event) {
     $('.selected').removeClass();
-    $(this).parent().find("label").addClass('selected');
+    $(this).addClass('selected');
   });
-  
+
 });
 
-//FUNCTIONS 
-function displayQuestion(){
-  $('.question-number').text('QUESTION NUMBER: '+(current + 1)+"/10" );
-  if(current < myQuestions.length){
-    let listQuestion = myQuestions[current];
-    $('h2').text(listQuestion.question);
-    $('form.list').html('');
-   for (let i = 0; i < listQuestion.answers.length; i++) {
-    $('form.list').append (`<div><label for="input${i}">${listQuestion.answers[i]}</label> <input type="radio" name="choice" value="0" id = "input${i}"></input></div>`)
-     
-           
+
+  //FUNCTIONS
+  function displayQuestion(){
+    $('.question-number').text('Question Number: '+(current + 1)+"/10" );
+    if(current < myQuestions.length){
+      let listQuestion = myQuestions[current];
+      $('h2').text(listQuestion.question);
+      $('ul.questions-selector').html('');
+      for (let i = 0; i < listQuestion.answers.length; i++) {
+        $('ul.questions-selector').append('<li id = "'+i+'">'+listQuestion.answers[i] +'</li>'); //To Do Modify this to use symantic form Tag
+      }
+    } else {
+      // show summary that says how many you got correct
+      displayScore();
     }
-  } else {
-    // show summary that says how many you got correct
-    displayScore();
   }
-}
 
-// function stub to check answer 
-function checkAnswer(answer){
-  let listQuestion = myQuestions[current];
-  if(listQuestion.correct == answer){
-    score++;
-    $('label.selected').addClass('correct');
-  } else {
-    $('input.selected').addClass('incorrect');
-    $('listQuestion.correct').addClass('correct');
+  // function stub to check answer
+  function checkAnswer(answer){
+    let listQuestion = myQuestions[current];
+    if(listQuestion.correct == answer){
+      score++;
+      $('li.selected').addClass('correct');
+    } else {
+      $('li.selected').addClass('incorrect');
+    }
+    $('.score').text('Current Score: '+score);
+    current++;
   }
-  $('.score').text('CURRENT SCORE: '+score);
-  current++;
-}
 
-//Display score
-function displayScore(){
-  $('.questions').hide();
-  $('.end-quiz').show();
-  $('.end-score').text("YOUR SCORE IS: " +score + '/10');
-  if(score >= 8){
-    $('.comment').text('SOMEONE KNOWS THEIR STUFF!')
-    ;
-  } else {
-    $('.comment').text('BETTER LUCK NEXT TIME!')
-  
-  }
-};
-
-
-
+  //function to display score
+  function displayScore(){
+    $('.questions').hide();
+    $('.end-quiz').show();
+    $('.end-score').text("Your score: " +score + '/10');
+    if(score >= 7){
+      $('.comment').text('Nice job, Superfan!');
+    } else {
+      $('.comment').text('Get to binge watching and try again!')
+    }
+  };
