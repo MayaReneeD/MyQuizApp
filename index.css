@@ -62,6 +62,9 @@ button {
   text-align: center;
   width: 500px;
   height: 300px;
+  min-height: 300px;
+  
+  
 }
 
 .end-quiz {
@@ -130,12 +133,15 @@ li {
   }
 }
 
-@media screen and (min-width: 900px) {
+@media screen and (max-width: 900px) {
   .topbar {
     font-size: 60px;
     font-weight: bold;
     margin: 0 auto;
+  
   }
+  }
+
 
 
 .questions .end-quiz {
