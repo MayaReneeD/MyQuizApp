@@ -27,11 +27,13 @@ h1, h2 {
   text-align: center;
   font-weight: bold;
   color: white;
+  display: block;
 }
 
 h2 {
   font-size: 20px;
   color: white;
+  display: block;
 }
 
 button {
@@ -57,12 +59,13 @@ button {
 .questions, .end-quiz {
   display: none;
   text-align: center;
-  padding-bottom: 200px;
+  padding-bottom: 0px;
   margin: 0 auto 0 auto;
   text-align: center;
   width: 500px;
   height: 300px;
   min-height: 300px;
+  
   
   
 }
@@ -77,21 +80,24 @@ button {
 .question-number, .score {
   font-size: 30px;
   color:white;
-  padding-top: 30px;
+  padding-top: 0px;
+  
 }
 
-ul {
+.div {
   list-style: none;
   padding: 0;
+  
 }
 
-li {
+.input {
   border: 1px solid #d6d6cf;
   width: 200px;
   margin: 5px auto;
   font-size: 18px;
   border-radius: 5px;
   padding: 5px;
+  
 }
 
 .selected {
@@ -147,5 +153,22 @@ li {
 .questions .end-quiz {
   width: 600px;
   margin: 0 auto;
+  
+}
+}
+
+fieldset {
+  min-height: 300px;
+  
+}
+}
+
+.label {
+  display: block; 
+}
+}
+
+form {
+  min-height: 500px;
 }
 }
