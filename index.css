@@ -155,20 +155,20 @@ button {
   margin: 0 auto;
   
 }
-}
+
 
 fieldset {
-  min-height: 300px;
+  min-height: 250px;
   
 }
-}
+
 
 .label {
   display: block; 
-}
+
 }
 
 form {
   min-height: 500px;
-}
+
 }
