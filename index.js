@@ -91,8 +91,6 @@ $(".retry-button").click(function() {
 $('div.questions-selector').on('click', 'input', function(event) {
   $('.selected').removeClass();
   $(this).addClass('selected');
-
-  // MODIFICATIONS BELOW
   $(this).parent().addClass('selected');
 });
 });
@@ -120,7 +118,6 @@ if (current < myQuestions.length) {
 function checkAnswer(answer) {
 let listQuestion = myQuestions[current];
 
-// MODIFICATIONS BELOW
 const inputString = "input";
 const correctId = inputString.concat(listQuestion.correct);
 console.log("correctId: " + correctId);
