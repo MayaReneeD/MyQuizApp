@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.irc_mi {
+  width: 100%;
+  height: auto;
+}
+
+
 body {
   background:#586060;
   background-repeat: no-repeat;
@@ -13,6 +19,7 @@ body {
   font-size: 20px;
   margin: 10px;
 }
+
 
 .topbar {
   max-width: 800px;
@@ -37,7 +44,8 @@ h2 {
 }
 
 button {
-  width: 300px;
+  width: 100%;
+  margin: auto; 
   height: 40px;
   background: #d4f4dd;
   font-family: 'Mina', sans-serif;
@@ -48,7 +56,7 @@ button {
 }
 
 .start-page {
-  width: 500px;
+  width: 100%;
   height: 300px;
   margin: 10px auto;
   text-align: center;
@@ -62,7 +70,8 @@ button {
   padding-bottom: 0px;
   margin: 0 auto 0 auto;
   text-align: center;
-  width: 500px;
+  width: 100%;
+  margin: 0 auto; 
   height: 300px;
   min-height: 300px;
   
@@ -123,7 +132,7 @@ button {
   .questions .end-quiz {
     width: 200px;
     margin: 0 auto;
-  }
+  
 
 }
 
@@ -133,10 +142,10 @@ button {
     font-size: 40px;
     margin: 0 auto;
   }
-  .questions .end-quiz {
+  .questions, .end-quiz {
     width: 400px;
     margin: 0 auto;
-  }
+  
 }
 
 @media screen and (max-width: 900px) {
@@ -145,13 +154,13 @@ button {
     font-weight: bold;
     margin: 0 auto;
   
-  }
+  
   }
 
 
 
 .questions .end-quiz {
-  width: 600px;
+  width: 100%;
   margin: 0 auto;
   
 }
